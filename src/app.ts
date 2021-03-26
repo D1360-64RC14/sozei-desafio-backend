@@ -1,9 +1,10 @@
 import Express from "express";
-import router from "./routes/index";
+import ToolsRoute from "./routes/tools.route";
 
 const app = Express();
-app.use("/", router)
 
-export {
-    app
-}
+app.use(Express.json());
+
+app.use("/tools", ToolsRoute);
+
+export default app;

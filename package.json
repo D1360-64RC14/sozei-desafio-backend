@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/index.js",
+    "startb": "tsc --build && node build/index.js",
     "build": "tsc --build",
     "watch": "tsc --watch",
     "nodemon": "nodemon build/index.js"
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/D1360-64RC14/sozei-desafio-backend#readme",
   "dependencies": {
+    "ajv": "^7.2.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-logs": "^1.0.5",
