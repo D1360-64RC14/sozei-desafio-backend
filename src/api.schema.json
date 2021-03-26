@@ -1,0 +1,203 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Back-end challange API Endpoints",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Diego Garcia",
+            "email": "gdiego416@gmail.com"
+        }
+    },
+    "paths": {
+        "/tools": {
+            "get": {
+                "description": "Irá listar todas as ferramentas presentes no banco de dados",
+                "responses": {
+                    "200": {
+                        "description": "Retornará uma lista de objetos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ToolsResponseJSONArray"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Irá adicionar uma ferramenta ao banco de dados",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestBodyJSON"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Retornará um objeto com a ferramenta criada, incluindo seu ID atribuído pela base de dados",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ToolsResponseJSON"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/tools/{id}": {
+            "get": {
+                "description": "Irá listar apenas a ferramenta com o ID especificado",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retornará um objeto com o ID especificado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ToolsResponseJSON"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "O servidor irá retornar um erro caso a ferramenta não exista",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ToolsResponseJSONError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Removerá o item com o ID especificado",
+                "responses": {
+                    "204": {
+                        "description": "Retornará apenas o código 204 caso tenha sucesso"
+                    },
+                    "404": {
+                        "description": "O servidor irá retornar um erro caso a ferramenta não exista",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ToolsResponseJSONError"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ToolsResponseJSON": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "link": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ToolsResponseJSONArray": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "link": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "ToolsResponseJSONError": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "string",
+                        "example": "O item com ID 8 não foi encontrado."
+                    }
+                }
+            },
+            "RequestBodyJSON": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "link": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": ["title", "link", "description", "tags"]
+            }
+        }
+    }
+}

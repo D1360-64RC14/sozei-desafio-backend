@@ -1,7 +1,5 @@
 import AJV, { JSONSchemaType } from "ajv";
 
-const ajv = new AJV()
-
 interface IToolSchema {
     title: string;
     link: string;
@@ -9,27 +7,33 @@ interface IToolSchema {
     tags: string[];
 }
 
+// Explicação do porquê não importei do api.schema.json:
+// https://drive.google.com/file/d/1fPIMMynAwQo5FhOuyDs6jaEaimC02-LN
 const ToolSchema: JSONSchemaType<IToolSchema> = {
-    type: "object",
-    properties: {
-        title: {
-            type: "string"
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string"
         },
-        link: {
-            type: "string"
+        "link": {
+            "type": "string"
         },
-        description: {
-            type: "string"
+        "description": {
+            "type": "string"
         },
-        tags: {
-            type: "array",
-            items: {type: "string"}
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
-    required: ["title", "link", "description", "tags"]
+    "required": ["title", "link", "description", "tags"]
 }
 
-const Validator = ajv.compile(ToolSchema)
+const ajv = new AJV();
+
+const Validator = ajv.compile(ToolSchema);
 
 export {
     Validator,
