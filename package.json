@@ -9,7 +9,8 @@
     "startb": "tsc --build && node build/index.js",
     "build": "tsc --build",
     "watch": "tsc --watch",
-    "nodemon": "nodemon build/index.js"
+    "nodemon": "nodemon build/index.js",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
   "repository": {
     "type": "git",

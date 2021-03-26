@@ -20,7 +20,7 @@ export class Item {
     })
     description: string;
 
-    @Column('text', {
+    @Column('varchar', {
         array: true
     })
     tags: string[];
