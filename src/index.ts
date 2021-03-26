@@ -24,4 +24,8 @@ createConnection().then(connection => {
             Logger.success(`Server iniciado na porta ${process.env.SERVER_PORT}`);
         }
     );
+}).catch(err => {
+    Logger.error("Ocorreu um erro na base de dados").then(() => {
+        console.error(err);
+    });
 });

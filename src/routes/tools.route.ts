@@ -2,7 +2,6 @@ import { Router } from "express";
 import ItemsController from "../controllers/items.controller"
 import { Validator as ToolValidator, ToolSchema } from "../middlewares/toolsValidator"
 
-
 const routeTools = Router();
 
 routeTools
