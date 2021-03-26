@@ -14,7 +14,6 @@ npm install
 ### Configuração da base de dados (PostgreSQL)
 No arquivo `ormconfig.json` insira as informações da base de dados
 ```json
-   "type": "postgres",
    "host": "172.18.0.2",
    "port": 5432,
    "username": "postgres",
