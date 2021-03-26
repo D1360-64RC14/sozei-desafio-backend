@@ -12,6 +12,16 @@
         "/tools": {
             "get": {
                 "description": "Irá listar todas as ferramentas presentes no banco de dados",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tag",
+                        "description": "Procura por ferramentas com uma tag específica",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Retornará uma lista de objetos",
