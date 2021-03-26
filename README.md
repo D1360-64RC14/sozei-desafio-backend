@@ -12,6 +12,10 @@ GET /tools
 GET /tools?tag=node
 ```
 ```
+::: Listar ferramentas pelo ID.
+GET /tools/:id
+```
+```
 ::: Retorno. (HTTP 200)
 Content-Type: application/json
 ```
