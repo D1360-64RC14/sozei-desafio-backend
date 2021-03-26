@@ -4,7 +4,7 @@
    "port": 5432,
    "username": "postgres",
    "password": "masterpassword",
-   "database": "poduction",
+   "database": "production",
 
    "synchronize": true,
    "logging": false,
