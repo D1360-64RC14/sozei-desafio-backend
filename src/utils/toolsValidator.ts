@@ -33,9 +33,9 @@ const ToolSchema: JSONSchemaType<IToolSchema> = {
 
 const ajv = new AJV();
 
-const Validator = ajv.compile(ToolSchema);
+const ToolValidator = ajv.compile(ToolSchema);
 
 export {
-    Validator,
+    ToolValidator,
     ToolSchema
 }

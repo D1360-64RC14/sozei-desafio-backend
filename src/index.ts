@@ -4,12 +4,12 @@ import DotEnv from "dotenv";
 
 import "reflect-metadata";
 import { createConnection } from "typeorm"
-import ItemController from "./controllers/items.controller"
+import ToolController from "./controllers/tools.controller"
 
 DotEnv.config();
 
 createConnection().then(connection => {
-    ItemController.connection = connection;
+    ToolController.connection = connection;
 }).then(() => {
     // === Padrões ===
     // Porta   : 3000

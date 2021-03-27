@@ -98,7 +98,7 @@
                 }
             },
             "delete": {
-                "description": "Removerá o item com o ID especificado",
+                "description": "Removerá a ferramenta com o ID especificado",
                 "responses": {
                     "204": {
                         "description": "Retornará apenas o código 204 caso tenha sucesso"
@@ -183,7 +183,7 @@
                 "properties": {
                     "error": {
                         "type": "string",
-                        "example": "O item com ID 8 não foi encontrado."
+                        "example": "A ferramenta com ID 8 não foi encontrado."
                     }
                 }
             },
