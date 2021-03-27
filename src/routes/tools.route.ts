@@ -55,7 +55,6 @@ routeTools
 
 .delete("/:id", (req, res) => {
     const id = parseInt(req.params.id);
-    console.log(id)
     if(isNaN(id)) {
         res.status(400).json({
             error: "O parâmetro deve ser um número."
