@@ -18,7 +18,7 @@ No arquivo `ormconfig.json` insira as informações da base de dados
    "port": 5432,
    "username": "postgres",
    "password": "masterpassword",
-   "database": "poduction",
+   "database": "production",
 ```
 
 ### Configuração do servidor Express
